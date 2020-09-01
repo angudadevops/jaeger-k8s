@@ -1,4 +1,4 @@
-# jaeger-k8s
+# Jaeger with K8s
 
 Jaeger Example for Kubernetes cluster with Python Application. This document help you to understand how you can setup jaeger and deploy an Application and trace it using Jaeger.
 
@@ -74,4 +74,9 @@ echo http://$NODE_IP:$PYTHONPORT
 ```
 
 Trace the access events on Jaeger WebUI 
+
+## Jaeger with docker-compose
+
+If you want to use docker-compose to run Jaeger Opentracing with docker-compose, run the below command
+```
 
