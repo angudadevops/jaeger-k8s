@@ -1,0 +1,6 @@
+Flask
+mysql-connector
+flask-mysqldb
+requests
+jaeger-client
+Flask-Opentracing
