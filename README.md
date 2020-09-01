@@ -92,3 +92,15 @@ echo http://$NODE_IP:$PYTHONPORT
 ```
 
 Trace the access events on Jaeger WebUI 
+
+## Jaeger with Docker Compose
+
+If you want to use docker-compose to run Jaeger Opentracing with docker-compose, run the below command
+```
+git clone https://github.com/angudadevops/jaeger-k8s.git
+
+docker-compose up -d 
+```
+
+- Access Python web application with host port as 5000
+- Access Jaeger application with host port as 16686
