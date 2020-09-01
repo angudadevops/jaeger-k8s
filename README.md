@@ -51,7 +51,7 @@ First you need include Jaeger tracing in your application to trace the logs on J
 
 Run the below command to deploy python application which is already include jaeger tracing
 ```
-$ git clone 
+$ git clone https://github.com/angudadevops/jaeger-k8s.git
 
 $ kubectl apply -f jaeger-k8s/app-deployment.yaml
 ```
