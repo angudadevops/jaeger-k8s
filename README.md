@@ -1,4 +1,4 @@
-# Jaeger with K8s
+# Jaeger for K8s
 
 Jaeger Example for Kubernetes cluster with Python Application. This document help you to understand how you can setup jaeger and deploy an Application and trace it using Jaeger.
 
@@ -51,10 +51,28 @@ First you need include Jaeger tracing in your application to trace the logs on J
 
 Run the below command to deploy python application which is already include jaeger tracing
 ```
-$ git clone 
+$ git clone https://github.com/angudadevops/jaeger-k8s.git
 
 $ kubectl apply -f jaeger-k8s/app-deployment.yaml
 ```
+
+`NOTE:` If you have a Python Flask App, you just need add the below template to the end of the file. Refer [Jaeger Python Libraries](https://github.com/jaegertracing/jaeger-client-python)
+```
+def initialize_tracer():
+    config = Config(
+        config={
+            'sampler': {'type': 'const', 'param': 1},
+            'logging': True,
+        },
+        service_name='python',
+        validate=True,
+    )
+    return config.initialize_tracer() # also sets opentracing.tracer
+
+
+flask_tracer = FlaskTracer(initialize_tracer, True, app)
+```
+
 
 ### Setup Jaeger agent as a Sidecar
 
@@ -74,9 +92,3 @@ echo http://$NODE_IP:$PYTHONPORT
 ```
 
 Trace the access events on Jaeger WebUI 
-
-## Jaeger with docker-compose
-
-If you want to use docker-compose to run Jaeger Opentracing with docker-compose, run the below command
-```
-
