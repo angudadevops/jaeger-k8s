@@ -56,6 +56,24 @@ $ git clone https://github.com/angudadevops/jaeger-k8s.git
 $ kubectl apply -f jaeger-k8s/app-deployment.yaml
 ```
 
+`NOTE:` If you have a Python Flask App, you just need add the below template to the end of the file. Refer [Jaeger Python Libraries](https://github.com/jaegertracing/jaeger-client-python)
+```
+def initialize_tracer():
+    config = Config(
+        config={
+            'sampler': {'type': 'const', 'param': 1},
+            'logging': True,
+        },
+        service_name='python',
+        validate=True,
+    )
+    return config.initialize_tracer() # also sets opentracing.tracer
+
+
+flask_tracer = FlaskTracer(initialize_tracer, True, app)
+```
+
+
 ### Setup Jaeger agent as a Sidecar
 
 To enable jaeger agent on python web application you need annonate the webapp deployment as per below 
