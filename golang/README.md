@@ -1,6 +1,6 @@
 # Jaeger for K8s
 
-Jaeger Example for Kubernetes cluster with Python Application. This document help you to understand how you can setup jaeger and deploy an Application and trace it using Jaeger.
+Jaeger Example for Kubernetes cluster with Go Web Application. This document help you to understand how you can setup jaeger and deploy an Application and trace it using Jaeger.
 
 ## Prerequisites 
 - Kubernetes Cluster
